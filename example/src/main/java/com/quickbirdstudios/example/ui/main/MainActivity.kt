@@ -31,8 +31,8 @@ import com.quickbirdstudios.surveykit.steps.InstructionStep
 import com.quickbirdstudios.surveykit.steps.QuestionStep
 import com.quickbirdstudios.surveykit.steps.Step
 import com.quickbirdstudios.surveykit.survey.SurveyView
-import java.util.Date
 import kotlinx.android.parcel.Parcelize
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         survey = findViewById(R.id.survey_view)
         container = findViewById(R.id.surveyContainer)
         setupSurvey(survey)
-
     }
 
     private fun setupSurvey(surveyView: SurveyView) {
@@ -67,6 +66,14 @@ class MainActivity : AppCompatActivity() {
                 answerFormat = AnswerFormat.IntegerAnswerFormat(
                     defaultValue = 25,
                     hint = this.resources.getString(R.string.how_old_hint)
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.how_tall_title),
+                text = this.resources.getString(R.string.empty),
+                answerFormat = AnswerFormat.DoubleAnswerFormat(
+                    defaultValue = 1.5,
+                    hint = this.resources.getString(R.string.how_tall_hint)
                 )
             ),
             QuestionStep(
@@ -194,7 +201,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
 
         val configuration = SurveyTheme(
             themeColorDark = ContextCompat.getColor(this, R.color.cyan_dark),
